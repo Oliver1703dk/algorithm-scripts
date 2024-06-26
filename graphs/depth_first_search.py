@@ -30,18 +30,30 @@ def depth_first_search(graph: dict, start: str) -> set[str]:
     return explored
 
 
+# G = {
+#     "A": ["B", "C", "D"],
+#     "B": ["A", "D", "E"],
+#     "C": ["A", "F"],
+#     "D": ["B", "D"],
+#     "E": ["B", "F"],
+#     "F": ["C", "E", "G"],
+#     "G": ["F"],
+# }
+
 G = {
-    "A": ["B", "C", "D"],
-    "B": ["A", "D", "E"],
-    "C": ["A", "F"],
-    "D": ["B", "D"],
-    "E": ["B", "F"],
-    "F": ["C", "E", "G"],
-    "G": ["F"],
+    "A": ["D", "G"],
+    "B": ["C"],
+    "C": ["B", "F"],
+    "D": ["E", "G"],
+    "E": ["A", "D"],
+    "F": ["B", "G"],
+    "G": ["B", "H", "I"],
+    "H": ["D", "F", "G"],
+    "I": ["A", "G"]
 }
 
 if __name__ == "__main__":
     import doctest
 
-    doctest.testmod()
+    # doctest.testmod()
     print(depth_first_search(G, "A"))

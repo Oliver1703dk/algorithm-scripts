@@ -1,25 +1,21 @@
 digraph {
-	"" [label=335 shape=circle]
+	"" [label=1300 shape=circle]
 	"" -> 0 [label=0]
-	0 [label="g
-125" shape=circle]
+	0 -> 00 [label=0]
+	00 [label="b
+250" shape=circle]
+	0 -> 01 [label=1]
+	01 -> 010 [label=0]
+	010 [label="c
+100" shape=circle]
+	01 -> 011 [label=1]
+	011 [label="a
+200" shape=circle]
 	"" -> 1 [label=1]
 	1 -> 10 [label=0]
-	10 [label="b
-90" shape=circle]
+	10 [label="d
+350" shape=circle]
 	1 -> 11 [label=1]
-	11 -> 110 [label=0]
-	110 -> 1100 [label=0]
-	1100 [label="c
-15" shape=circle]
-	110 -> 1101 [label=1]
-	1101 [label="f
-30" shape=circle]
-	11 -> 111 [label=1]
-	111 -> 1110 [label=0]
-	1110 [label="h
-35" shape=circle]
-	111 -> 1111 [label=1]
-	1111 [label="d
-40" shape=circle]
+	11 [label="e
+400" shape=circle]
 }

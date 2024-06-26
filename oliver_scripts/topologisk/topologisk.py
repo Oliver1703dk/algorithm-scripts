@@ -41,13 +41,13 @@ def all_topological_sorts(graph):
 
 # Define the graph
 graph = {
-    'a': ['b', 'd'],
-    'b': ['d', 'e', 'c'],
-    'c': ['f'],
-    'd': [],
-    'e': ['f', 'd'],
-    'f': [],
-    'g': ['c', 'f']
+    'a': [],
+    'b': ['a', 'd', 'e', 'c'],
+    'c': ['e'],
+    'd': ['a', 'e'],
+    'e': [],
+    'f': ['c', 'e']
+    # 'g': ['c', 'f']
 }
 
 # Find all topological sorts

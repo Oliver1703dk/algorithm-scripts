@@ -100,7 +100,7 @@ def visualize_huffman_tree(node):
 
 # Example usage
 if __name__ == "__main__":
-    frequencies = {'b': 90, 'c': 15, 'd': 40, 'f': 30, 'g': 125, 'h': 35}
+    frequencies = {'a': 200, 'b': 250, 'c': 100, 'd': 350, 'e': 400}
     data = ''.join(char * freq for char, freq in frequencies.items())
 
     encoded_data, huffman_code, root = huffman_encoding(data, frequencies)

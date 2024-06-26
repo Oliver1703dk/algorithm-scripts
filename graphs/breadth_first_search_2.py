@@ -19,12 +19,16 @@ from queue import Queue
 from timeit import timeit
 
 G = {
-    "A": ["B", "C"],
-    "B": ["A", "D", "E"],
-    "C": ["A", "F"],
-    "D": ["B"],
-    "E": ["B", "F"],
-    "F": ["C", "E"],
+    "A": ["G"],
+    "B": ["C", "H"],
+    "C": ["A", "H"],
+    "D": ["I", "J", "H"],
+    "E": ["B", "D", "H", "F"],
+    "F": ["B", "E"],
+    "G": ["C", "J"],
+    "H": ["D", "E", "J", "G"],
+    "I": ["D", "J"],
+    "J": []
 }
 
 
@@ -46,6 +50,8 @@ def breadth_first_search(graph: dict, start: str) -> list[str]:
                 explored.add(w)
                 result.append(w)
                 queue.put(w)
+
+
     return result
 
 
@@ -66,6 +72,7 @@ def breadth_first_search_with_deque(graph: dict, start: str) -> list[str]:
                 visited.add(child)
                 result.append(child)
                 queue.append(child)
+
     return result
 
 
@@ -79,8 +86,9 @@ def benchmark_function(name: str) -> None:
 if __name__ == "__main__":
     import doctest
 
-    doctest.testmod()
+    # doctest.testmod()
 
+    print(breadth_first_search(G, 'A'))
     benchmark_function("breadth_first_search")
     benchmark_function("breadth_first_search_with_deque")
     # breadth_first_search                finished 10000 runs in 0.20999 seconds

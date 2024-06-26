@@ -1,35 +1,36 @@
-import sympy as sp
+def count_iterations(n):
+    counter = 0
+    s = 0
+    # for i in range(1, n+1):
+    #     s = i + s
+    #     counter += 1
+    # return counter
+
+    for i in range(1, n*n):
+        for j in range(1, n):
+            s = s + 1
+            counter += 1
+    return counter
+
+    # i = 1
+    # j = n
+    # while i <= j:
+    #     j = j - 1
+    #     i = 2 * i
+    #     counter += 1
+    # return counter
+
+    # i = n
+    # s = 0
+    # while i >= 1:
+    #     for j in range(i, 2*i):
+    #         s = s + 1
+    #         counter = counter + 1
+    #     i = i//2
+    # return counter
 
 
-def analyze_algorithm():
-    n = sp.symbols('n', integer=True)
-    i, j = 1, 1
-    operations = 0
-
-    while i <= n:
-        operations += 1  # Count the outer loop operation
-        i += 5
-        while j < i:
-            operations += 1  # Count the inner loop operation
-            j += 1
-
-    print(f"Total operations: {operations}")
-
-    # Define symbolic variables
-    n = sp.symbols('n', integer=True)
-
-    # Compute the upper bound (Big O)
-    big_o = sp.O(operations, n)
-    print(f"Big O: {big_o}")
-
-    # Compute the lower bound (Omega)
-    omega = sp.Omega(operations, n)
-    print(f"Omega: {omega}")
-
-    # Compute the tight bound (Theta)
-    theta = sp.Order(operations, n)
-    print(f"Theta: {theta}")
-
-
-# Example usage
-analyze_algorithm()
+# Example usage:
+n = 10
+iterations = count_iterations(n)
+print(f"Number of iterations for n = {n}: {iterations}")
