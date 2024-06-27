@@ -1,7 +1,5 @@
 import heapq
-from collections import defaultdict, Counter
-import graphviz
-
+from collections import defaultdict
 
 class HuffmanNode:
     def __init__(self, char, freq):
@@ -13,7 +11,6 @@ class HuffmanNode:
     # Defining comparator methods for the priority queue
     def __lt__(self, other):
         return self.freq < other.freq
-
 
 def build_huffman_tree(frequencies):
     heap = [HuffmanNode(char, freq) for char, freq in frequencies.items()]
@@ -31,7 +28,6 @@ def build_huffman_tree(frequencies):
 
     return heap[0]
 
-
 def build_huffman_codes(node, code="", huffman_code={}):
     if node is None:
         return
@@ -44,7 +40,6 @@ def build_huffman_codes(node, code="", huffman_code={}):
 
     return huffman_code
 
-
 def huffman_encoding(data, frequencies):
     if not data:
         return "", {}
@@ -55,15 +50,12 @@ def huffman_encoding(data, frequencies):
     encoded_data = "".join(huffman_code[char] for char in data)
     return encoded_data, huffman_code, root
 
-
 def calculate_total_bits(data, huffman_code):
-    total_bits = sum(len(huffman_code[char]) * freq for char, freq in Counter(data).items())
+    total_bits = sum(len(huffman_code[char]) * data.count(char) for char in data)
     return total_bits
-
 
 def calculate_bits_for_char(char, huffman_code):
     return len(huffman_code.get(char, ""))
-
 
 def huffman_decoding(encoded_data, root):
     decoded_data = []
@@ -80,31 +72,15 @@ def huffman_decoding(encoded_data, root):
 
     return "".join(decoded_data)
 
-
-def visualize_huffman_tree(node):
-    def add_edges(graph, node, prefix=""):
-        if node.left:
-            graph.edge(prefix, prefix + "0", label="0")
-            add_edges(graph, node.left, prefix + "0")
-        if node.right:
-            graph.edge(prefix, prefix + "1", label="1")
-            add_edges(graph, node.right, prefix + "1")
-        if node.char is not None:
-            graph.node(prefix, label=f'{node.char}\n{node.freq}', shape='circle')
-
-    graph = graphviz.Digraph(format='png')
-    graph.node('', label=f'{node.freq}', shape='circle')
-    add_edges(graph, node)
-    return graph
-
-
 # Example usage
 if __name__ == "__main__":
     frequencies = {'a': 500, 'b': 400, 'c': 300, 'd': 250, 'e': 200, 'f': 150}
-    data = ''.join(char * freq for char, freq in frequencies.items())
+    data = "caffebad"
+    print(f"Original data: {data}")
 
     encoded_data, huffman_code, root = huffman_encoding(data, frequencies)
     print(f"Encoded data: {encoded_data}")
+    print(f"Decoded data amount of bits: {len(encoded_data)}")
     print(f"Huffman Codes: {huffman_code}")
 
     total_bits = calculate_total_bits(data, huffman_code)
@@ -117,7 +93,4 @@ if __name__ == "__main__":
     decoded_data = huffman_decoding(encoded_data, root)
     print(f"Decoded data: {decoded_data}")
 
-    # Visualize the Huffman Tree
-    graph = visualize_huffman_tree(root)
-    graph.render('huffman_tree')
-    print("Huffman tree visualized and saved as 'huffman_tree.png'")
+
