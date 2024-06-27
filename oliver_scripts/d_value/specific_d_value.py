@@ -47,6 +47,6 @@ graph = {
 
 
 start_node = 'c'
-d_value = 5
+d_value = 4
 node_with_d_value = bfs(graph, start_node, d_value)
 print(f"The first node with d-value {d_value} is: {node_with_d_value}")

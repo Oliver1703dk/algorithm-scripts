@@ -31,6 +31,6 @@ def count_iterations(n):
 
 
 # Example usage:
-n = 10
+n = 100
 iterations = count_iterations(n)
 print(f"Number of iterations for n = {n}: {iterations}")

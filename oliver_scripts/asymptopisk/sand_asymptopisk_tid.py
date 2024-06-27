@@ -47,15 +47,50 @@ n = 1024
 #         iterations += 1
 #     i = i // 2
 # """
+
+# algorithm_code = """
+# iterations = 0
+# i = 1
+# j = n
+# while i < j:
+#     i = i + 1
+#     j = j - 1
+#     iterations += 1
+# """
+
 algorithm_code = """
 iterations = 0
 i = 1
 j = n
-while i < j:
-    i = i + 1
-    j = j - 1
-    iterations += 1
+for i in range(1, n + 1):
+        j = n - i
+        while j < n:
+            j += 1
+            iterations += 1
 """
+
+# algorithm_code = """
+# iterations = 0
+# i = n
+# while i>1:
+#     j = 1
+#     while j < i:
+#         j = 2 * j
+#         iterations += 1
+#     i = i - 1
+# """
+
+# algorithm_code = """
+# iterations = 0
+# i = 1
+# while i<n:
+#     j = i
+#     while j > 1:
+#         j = j / 2
+#         iterations += 1
+#     i = 2 * i
+# """
+
 
 
 """

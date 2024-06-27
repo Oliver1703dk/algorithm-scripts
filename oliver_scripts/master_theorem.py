@@ -84,9 +84,9 @@ def master_theorem(a, b, f_n):
     return result, case
 
 # Example usage
-a = 4
-b = 3
-f_n = 'n*log(n)'
+a = 1
+b = 4
+f_n = 'log(n)'
 
 result, case = master_theorem(a, b, f_n)
 print(f"Result: {result}")
