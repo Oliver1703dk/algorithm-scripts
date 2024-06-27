@@ -14,7 +14,7 @@ def build_max_heap(data):
 # Example usage
 if __name__ == "__main__":
     # This is a list that we will convert into a max-heap
-    data = [2, 3, 7, 10, 9, 8, 5]
+    data = [5, 4, 3, 3, 4, 2, 3, 2, 1]
     max_heap = build_max_heap(data)
     print(f"Initial max-heap: {[-x for x in max_heap]}")
 

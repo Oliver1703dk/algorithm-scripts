@@ -11,6 +11,7 @@ def bfs(graph, start, d_value):
             if distances[neighbor] is None:
                 distances[neighbor] = distances[current] + 1
                 queue.append(neighbor)
+                print(f"Node: {neighbor}, Distance: {distances[neighbor]}")
                 # Check if the distance is d_value
                 if distances[neighbor] == d_value:
                     return neighbor
@@ -18,20 +19,34 @@ def bfs(graph, start, d_value):
     return None
 
 # Define the graph based on the given image
+# graph = {
+#     'a': ['e'],
+#     'b': ['c'],
+#     'c': ['f', 'h'],
+#     'd': ['i', 'j'],
+#     'e': ['d', 'g', 'b'],
+#     'f': ['g'],
+#     'g': ['c'],
+#     'h': ['b'],
+#     'i': ['j'],
+#     'j': ['g']
+# }
+
 graph = {
-    'a': ['e'],
-    'b': ['c'],
-    'c': ['f', 'h'],
-    'd': ['i', 'j'],
-    'e': ['d', 'g', 'b'],
-    'f': ['g'],
-    'g': ['c'],
-    'h': ['b'],
-    'i': ['j'],
-    'j': ['g']
+    'a': ['b'],
+    'b': ['f', 'g'],
+    'c': ['b', 'g', 'd'],
+    'd': ['h'],
+    'e': ['i', 'd'],
+    'f': ['g', 'a'],
+    'g': [],
+    'h': ['c', 'i'],
+    'i': ['d']
+    # 'j': ['g']
 }
 
-start_node = 'a'
-d_value = 1
+
+start_node = 'c'
+d_value = 5
 node_with_d_value = bfs(graph, start_node, d_value)
 print(f"The first node with d-value {d_value} is: {node_with_d_value}")
